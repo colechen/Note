@@ -110,6 +110,7 @@ activate_control_app
 mkdir -p shared/pids shared/sockets shared/log
 ```
 7. Install and Configure Nginx
+https://github.com/puma/puma/blob/master/docs/nginx.md
 ```
 brew install nginx
 vi /usr/local/etc/nginx/servers/appname.conf
