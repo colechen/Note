@@ -37,6 +37,22 @@ vi config/database.yml
     username: <%= ENV['APPNAME_DATABASE_USER'] %>
     password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
     
+4. Install rbenv-vars Plugin
+```
+cd ~/.rbenv/plugins
+git clone https://github.com/sstephenson/rbenv-vars.git
+cd ~/appname
+rails secret
+vi .rbenv-vars
+```
+```
+SECRET_KEY_BASE=your_generated_secret
+APPNAME_DATABASE_USER=appname
+APPNAME_DATABASE_PASSWORD=prod_db_pass
+```
+```
+rbenv vars     // to view all environment variables
+```
 4. Create Production Database
 ```shell
 RAILS_ENV=production rake db:create
