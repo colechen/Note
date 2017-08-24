@@ -71,7 +71,7 @@ RAILS_ENV=production rails s --binding=server_public_IP    // bind it to the pub
 ```shell
 //look up the number of CPU cores your server has on Ubuntu
 grep -c processor /proc/cpuinfo
-vi config/puma.rb    //edit puma
+vi config/puma/producation.rb    //edit puma for production, or directly edit config/puma.rb
 ```
 ```
 # Change to match your CPU core count
@@ -98,11 +98,12 @@ pidfile "#{shared_dir}/pids/puma.pid"
 state_path "#{shared_dir}/pids/puma.state"
 activate_control_app
 
-on_worker_boot do
-  require "active_record"
-  ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
-  ActiveRecord::Base.establish_connection(YAML.load_file("#{app_dir}/config/database.yml")[rails_env])
-end
+# Caution: Following section will be execute before .rbenv-vars, won't be able to access global variables
+# on_worker_boot do
+#  require "active_record"
+#  ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
+#  ActiveRecord::Base.establish_connection(YAML.load_file("#{app_dir}/config/database.yml")[rails_env])
+# end
 ```
 ```
 //Create necessary directory
