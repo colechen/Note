@@ -111,7 +111,7 @@ mkdir -p shared/pids shared/sockets shared/log
 7. Install and Configure Nginx
 ```
 brew install nginx
-vi /usr/local/etc/nginx/nginx.conf
+vi /usr/local/etc/nginx/servers/appname.conf
 ```
 ```
 upstream app {
