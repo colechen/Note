@@ -122,6 +122,21 @@ Empty an object by setting it to undefined -> Value is undefined, type is undefi
 
     // the counter is now 3
     ```
+    >A closure returns an instance of child function by calling the parent function. 
+    >The return function can access scope of parent function
+    >The returned instance can be executed later.
+    ```javascript
+    	<button id='me'>
+	  aaa
+	</button>
+	
+	function a() {
+		alert('aa');
+	}
+	var b = a();
+	document.getElementById('me').onclick= b;
+    ```
+    >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
     >The variable add is assigned the return value of a self-invoking function.<br />
     >The self-invoking function only runs once. It sets the counter to zero (0), and returns a function expression.<br />
     >This way add becomes a function. The "wonderful" part is that it can access the counter in the parent scope.<br />
