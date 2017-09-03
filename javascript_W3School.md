@@ -155,7 +155,7 @@ Empty an object by setting it to undefined -> Value is undefined, type is undefi
   | document.createElement(element) |	Create an HTML element |
   | document.removeChild(element) |	Remove an HTML element |
   | document.appendChild(element) |	Add an HTML element |
-  | document.replaceChild(element) | Replace an HTML element |
+  | replacedNode = parentNode.replaceChild(newChild, oldChild) | Replace an HTML element |
   | document.write(text) |	Write into the HTML output stream |
   
 - Adding Events Handlers
