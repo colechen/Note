@@ -542,5 +542,24 @@ console.log(t.myName());
 console.log(t.anothername());
 console.log(Teacher.prototype.constructor);
 ```
+- Map, filter, reduce
+```javascript
+var arr = [1, 2, 3, 4];
 
+var a1 = arr.map(function(item, index) {
+	console.log(item + " " + index);
+  return item + 1;
+});
+console.log(a1);
+
+var a2 = arr.filter(function(item) {
+	return item > 2;
+});
+console.log(a2);
+
+var a3 = arr.reduce(function(a, b) {
+	return a + b;
+}, 2);
+console.log(a3);
+```
 
