@@ -131,7 +131,9 @@ Empty an object by setting it to undefined -> Value is undefined, type is undefi
 	</button>
 	
 	function a() {
+	    return function() {
 		alert('aa');
+	    }
 	}
 	var b = a();
 	document.getElementById('me').onclick= b;
