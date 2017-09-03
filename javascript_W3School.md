@@ -505,4 +505,42 @@ Empty an object by setting it to undefined -> Value is undefined, type is undefi
     status |	Returns the status-number of a request<br />200: "OK"<br />403: "Forbidden"<br />404: "Not Found"<br />For a complete list go to the Http Messages Reference
     statusText |	Returns the status-text (e.g. "OK" or "Not Found")
     
-- 
+- Object Constructor, Prototype, inheritance
+```javascript
+var Person = function (first, last, age) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.myName = function() {
+    	return this.firstName + " " + this.lastName;
+    }
+}
+Person.prototype.nationality = "English";
+Person.prototype.name = function() {
+    return this.firstName + " " + this.lastName;
+}; 
+
+var p = new Person('a','b','c');
+
+Person.prototype.anothername = function() {
+    return this.firstName + " " + this.lastName;
+}; 
+//console.log(p.constructor);
+//console.log(Person.prototype);
+
+function Teacher(first, last, age, subject) {
+  Person.call(this, first, last, age);
+
+  this.subject = subject;
+}
+Teacher.prototype = Object.create(Person.prototype);
+Teacher.prototype.constructor = Teacher;
+var t = new Teacher('a','b','c','d');
+console.log(Object.keys(t));
+console.log(t.subject);
+console.log(t.myName());
+console.log(t.anothername());
+console.log(Teacher.prototype.constructor);
+```
+
+
