@@ -111,16 +111,31 @@ Empty an object by setting it to undefined -> Value is undefined, type is undefi
   
 - JavaScript **Closures**
     ```javascript
-    var add = (function () {
-        var counter = 0;
-        return function () {return counter += 1;}
-    })();
+	//returns the value of self-invoking function 
+	//keeping access to counter
+	var add = (function () {
+	    var counter = 0;
+	    return function () {
+		return counter += 1;
 
-    add();
-    add();
-    add();
+	    }
+	})(); 
+	console.log(add()); //output 1
+	console.log(add()); //output 2
+	console.log(add()); //output 3
 
-    // the counter is now 3
+	//returns a function, can assign to variable to invoke later
+	var add = function () {
+	    var counter = 0;
+	    return function () {
+		return counter += 1;
+
+	    }
+	};
+	var a = add();
+	console.log(a());
+	console.log(a());
+	console.log(a());
     ```
     >A closure returns an instance of child function by calling the parent function. 
     >The return function can access scope of parent function
