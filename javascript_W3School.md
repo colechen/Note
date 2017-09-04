@@ -639,6 +639,7 @@ MY_ARRAY.push('A'); // ["A"]
 MY_ARRAY = ['B'];
 ```
 - var
+
 	assign value to variable inside control element or function automatically gets hoist to top (global)
 	```javascript
 	function a() {
