@@ -638,3 +638,28 @@ MY_ARRAY.push('A'); // ["A"]
 // However, assigning a new array to the variable throws an error
 MY_ARRAY = ['B'];
 ```
+- var
+	>assign value to variable inside control element or function automatically gets hoist to top (global)
+	```javascript
+	function a() {
+		y=2;
+	}
+	console.log(y); //output 2
+	```	
+	>Redeclare global variable inside control element using var will result in re-declaration of global variable
+	```javascript
+	var a = 5;
+	if(true) {
+		var a  = 6;
+	}
+	console.log(a); //output 6
+	```
+	>Redeclare global variable inside function using var will will create a new copy of variable locally, assignment will not overwrite global variable
+	```javascript
+	var a = 5;
+	function b() {
+		var a  = 6;
+	}
+	b();
+	console.log(a); //output 5
+	```
