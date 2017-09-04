@@ -640,38 +640,38 @@ MY_ARRAY = ['B'];
 ```
 - var
 	
-	```javascript
-	//assign value to variable inside control element or function automatically gets hoist to top (global)
-	function a() {
-		y=2;
-	}
-	console.log(y); //output 2
-	```	
-	```javascript
-	//Redeclare global variable inside control element using var will result in re-declaration of global variable
-	var a = 5;
-	if(true) {
-		var a  = 6;
-	}
-	console.log(a); //output 6
-	```
-	```javascript
-	//Redeclare global variable inside function using var will will create a new copy of variable locally, assignment will not overwrite global variable
-	var a = 5;
-	function b() {
-		var a  = 6;
-	}
-	b();
-	console.log(a); //output 5
-	
-	var x = 0;
-	function f() {
-	  var x = y = 1; // x is declared locally. y is not!
-	}
-	f();
+```javascript
+//assign value to variable inside control element or function automatically gets hoist to top (global)
+function a() {
+	y=2;
+}
+console.log(y); //output 2
+```	
+```javascript
+//Redeclare global variable inside control element using var will result in re-declaration of global variable
+var a = 5;
+if(true) {
+	var a  = 6;
+}
+console.log(a); //output 6
+```
+```javascript
+//Redeclare global variable inside function using var will will create a new copy of variable locally, assignment will not overwrite global variable
+var a = 5;
+function b() {
+	var a  = 6;
+}
+b();
+console.log(a); //output 5
 
-	console.log(x, y); // Throws a ReferenceError in strict mode (y is not defined). 0, 1 otherwise. 
-	// In non-strict mode:
-	// x is the global one as expected
-	// y leaked outside of the function, though!
-	```
+var x = 0;
+function f() {
+  var x = y = 1; // x is declared locally. y is not!
+}
+f();
+
+console.log(x, y); // Throws a ReferenceError in strict mode (y is not defined). 0, 1 otherwise. 
+// In non-strict mode:
+// x is the global one as expected
+// y leaked outside of the function, though!
+```
