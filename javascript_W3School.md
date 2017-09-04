@@ -638,8 +638,7 @@ MY_ARRAY.push('A'); // ["A"]
 // However, assigning a new array to the variable throws an error
 MY_ARRAY = ['B'];
 ```
-- var
-
+- var</br>
 	assign value to variable inside control element or function automatically gets hoist to top (global)
 	```javascript
 	function a() {
