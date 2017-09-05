@@ -153,6 +153,21 @@ Empty an object by setting it to undefined -> Value is undefined, type is undefi
 	var b = a();
 	document.getElementById('me').onclick= b;
     ```
+    ```javascript
+    var hero = function() {
+	var _name= 'Cole';
+	  return {
+		aaa: function() {
+		return _name;
+		},
+	    bbb: function() {
+		return "bbb"+_name;
+	    }
+	  }
+	};
+	var w = hero();
+	console.log(w.bbb());
+    ```
     >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
     >The variable add is assigned the return value of a self-invoking function.<br />
     >The self-invoking function only runs once. It sets the counter to zero (0), and returns a function expression.<br />
